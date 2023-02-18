@@ -1,2 +1,12 @@
 import "./style/style.scss";
-console.log("hello");
+import gameboardFactory from "./functions/gameboard";
+
+
+const gameboard = gameboardFactory();
+
+
+let main = () => {
+      console.log(gameboard.board);
+}
+
+main();

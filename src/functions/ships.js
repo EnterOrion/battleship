@@ -1,4 +1,4 @@
-const shipFactory = (length) => {
+const shipFactory = (length, id) => {
     let shipHealth = length; 
     const hit = () => {
         shipHealth--;
@@ -13,6 +13,7 @@ const shipFactory = (length) => {
     }
 
     return {
+        id,
         length,
         hit, 
         isSunk
