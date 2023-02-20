@@ -1,7 +1,7 @@
 import gameboardFactory from "./gameboard";
 
 const player = (name) => {
-    const board = gameboardFactory();
+    const gameboard = gameboardFactory();
     let moveArray = [];
 
     //The values will be obtained by the user clicking on the board
@@ -27,14 +27,11 @@ const player = (name) => {
 
     return {
         name,
-        board,
+        gameboard,
         simpleAttack,
         aiAttack
 
     }
 } 
-
-
-
 
 export default player;

@@ -101,7 +101,13 @@ const gameboardFactory = () => {
     }
 
     return {
+        board,
         placeShip, 
+        carrierShip,
+        battleShip,
+        cruiserShip,
+        submarineShip,
+        destroyerShip,
         receiveAttack,
         checkDefeat
     }

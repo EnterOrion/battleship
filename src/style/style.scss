@@ -1,3 +1,40 @@
 body {
     background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+  }
+  
+#gameboard {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: repeat(var(--grid-rows), 1rem);
+    grid-template-columns: repeat(var(--grid-cols), 1rem);
+}
+  
+.grid-item {
+    padding: 1em;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-item:hover {
+    background-color: white;
+}
+
+#black-click {
+    background-color: black;
+}
+
+button {
+    margin-bottom: 2%;
 }
