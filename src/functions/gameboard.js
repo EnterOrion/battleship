@@ -56,6 +56,7 @@ const gameboardFactory = () => {
                     board[horizontalStart][verticalStart + i] = id;
                 }
             }
+            return true;
         }
     };
 

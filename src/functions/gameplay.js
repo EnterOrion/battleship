@@ -76,25 +76,28 @@ function addClickEventsToGridItems(length, id) {
       else {
         return;
       }
-      shipCounter++;
+   
       let position = getGridElementsPosition(getNodeIndex(e.target));
       
-      humanPlayer.gameboard.placeShip(length, id, position.row, position.column, rotateShip)
+      if (humanPlayer.gameboard.placeShip(length, id, position.row, position.column, rotateShip)) {
+        shipCounter++;
+        if (rotateShip == false) {
+          for (let j=0; j<length; j++) {
+            gridItems[(position.row*10 + position.column) + j].textContent = "⬜";
+          }
+          
+          }
+          else {
+            for (let j=0; j<length; j++) {
+              gridItems[(position.row*10 + position.column) + (j * 10)].textContent = "⬜";
+            }
+          }
+      }
       
       console.log(humanPlayer.gameboard.board)
 
 
-      if (rotateShip == false) {
-      for (let j=0; j<length; j++) {
-        gridItems[(position.row*10 + position.column) + j].textContent = "⬜";
-      }
       
-      }
-      else {
-        for (let j=0; j<length; j++) {
-          gridItems[(position.row*10 + position.column) + (j * 10)].textContent = "⬜";
-        }
-      }
 
 
 
