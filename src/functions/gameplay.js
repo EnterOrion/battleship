@@ -5,8 +5,8 @@ const humanPlayer = player("Player");
 const aiPlayer = player("Computer");
 let rotateShip = false;
 
-const createBoard = (width, height) => {
-    const board = document.getElementById("gameboard");
+const createBoard = (width, height, boardID) => {
+    const board = document.getElementById(boardID);
     board.style.setProperty('--grid-rows', width);
     board.style.setProperty('--grid-cols', height);
   for (let c = 0; c < (width * height); c++) {
@@ -16,8 +16,10 @@ const createBoard = (width, height) => {
   }
 };
   
-createBoard(humanPlayer.gameboard.board.length, humanPlayer.gameboard.board.length);
-document.getElementById("rotate-button").addEventListener("click", () => {
+createBoard(humanPlayer.gameboard.board.length, humanPlayer.gameboard.board.length, "gameboard");
+
+const rotateButton = document.getElementById("rotate-button");
+rotateButton.addEventListener("click", () => {
   if (rotateShip == false) {
     rotateShip = true;
   }
@@ -48,6 +50,7 @@ function getNodeIndex(elm) {
 function addClickEventsToGridItems(length, id) {
   let gridItems = document.getElementsByClassName("grid-item");
   let shipCounter = 0;
+ 
   for (let i = 0; i < gridItems.length; i++) {
    
     gridItems[i].onmousedown = (e) => {
@@ -91,8 +94,17 @@ function addClickEventsToGridItems(length, id) {
           gridItems[i].onmouseleave = () => {
             gridItems[i].removeAttribute('id')
             }
-
-          document.getElementById("start-button").style.display = "block";
+            
+          const startButton = document.getElementById("start-button")
+          startButton.style.display = "block";
+          startButton.addEventListener("click", () => {
+            createBoard(10, 10, "enemy-gameboard");
+            startButton.style.display = "none";
+            rotateButton.style.display = "none";
+            document.querySelector("h1").style.display = "block";
+          })
+          
+          
         }
         if (rotateShip == false) {
           for (let j=0; j<length; j++) {
@@ -120,6 +132,9 @@ function addClickEventsToGridItems(length, id) {
     gridItems[i].onmouseleave = () => {
       gridItems[i].removeAttribute('id')
       }
+
+
+
 
   }
 }

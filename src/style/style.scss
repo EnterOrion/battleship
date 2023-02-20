@@ -5,6 +5,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 90vh;
+    gap: 50px;
 }
 
 :root {
@@ -12,20 +13,20 @@ body {
     --grid-rows: 1;
   }
   
-#gameboard {
+#gameboard, #enemy-gameboard {
     display: grid;
-    grid-gap: 1em;
-    grid-template-rows: repeat(var(--grid-rows), 1rem);
-    grid-template-columns: repeat(var(--grid-cols), 1rem);
+    grid-template-rows: repeat(var(--grid-rows), 42px);
+    grid-template-columns: repeat(var(--grid-cols), 42px)
 
 }
   
 .grid-item {
-    padding: 1em;
+    padding: 20px;
     border: 1px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
+   
 }
 
 .grid-item:hover {
@@ -39,18 +40,29 @@ body {
 
 #start-button {
     display: none;
-    margin-top: 20px;
 }
 
 #left-side {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     gap: 10px;
+
 }
 
 button {
     width: 50%;
 
+}
+
+#main-screen {
+    display: flex;
+    gap: 30px;
+
+}
+
+h1 {
+    display: none;
+    margin-bottom: -20px;
 }
