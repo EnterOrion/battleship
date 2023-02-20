@@ -43,7 +43,7 @@ const gameboardFactory = () => {
         };
         if (isSpaceValid(length, horizontalStart, verticalStart, rotated) == false)
         {
-            return;
+            return false;
         }
         else {
             if (rotated == true) {

@@ -17,6 +17,7 @@ body {
     grid-gap: 1em;
     grid-template-rows: repeat(var(--grid-rows), 1rem);
     grid-template-columns: repeat(var(--grid-cols), 1rem);
+
 }
   
 .grid-item {
@@ -35,6 +36,21 @@ body {
     background-color: black;
 }
 
+
+#start-button {
+    display: none;
+    margin-top: 20px;
+}
+
+#left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
 button {
-    margin-bottom: 2%;
+    width: 50%;
+
 }

@@ -17,7 +17,7 @@ const createBoard = (width, height) => {
 };
   
 createBoard(humanPlayer.gameboard.board.length, humanPlayer.gameboard.board.length);
-document.querySelector("button").addEventListener("click", () => {
+document.getElementById("rotate-button").addEventListener("click", () => {
   if (rotateShip == false) {
     rotateShip = true;
   }
@@ -72,6 +72,8 @@ function addClickEventsToGridItems(length, id) {
       else if (shipCounter == 4) {
         length = humanPlayer.gameboard.destroyerShip.length;
         id = humanPlayer.gameboard.destroyerShip.id;
+        
+        
       }
       else {
         return;
@@ -81,6 +83,17 @@ function addClickEventsToGridItems(length, id) {
       
       if (humanPlayer.gameboard.placeShip(length, id, position.row, position.column, rotateShip)) {
         shipCounter++;
+        if (shipCounter == 5) {
+          gridItems[i].onmouseup = () => {
+          gridItems[i].removeAttribute('id')
+          }
+          // fixes display issues
+          gridItems[i].onmouseleave = () => {
+            gridItems[i].removeAttribute('id')
+            }
+
+          document.getElementById("start-button").style.display = "block";
+        }
         if (rotateShip == false) {
           for (let j=0; j<length; j++) {
             gridItems[(position.row*10 + position.column) + j].textContent = "⬜";
@@ -93,8 +106,6 @@ function addClickEventsToGridItems(length, id) {
             }
           }
       }
-      
-      console.log(humanPlayer.gameboard.board)
 
 
       
@@ -105,6 +116,10 @@ function addClickEventsToGridItems(length, id) {
     gridItems[i].onmouseup = () => {
       gridItems[i].removeAttribute('id');
     }
+    // fixes display issues
+    gridItems[i].onmouseleave = () => {
+      gridItems[i].removeAttribute('id')
+      }
 
   }
 }
