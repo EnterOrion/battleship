@@ -11,17 +11,22 @@ const player = (name) => {
         return [x, y]
     }
     const aiAttack = () => {
-        let x = Math.random() * 9;
-        let y = Math.random() * 9;
+        let x = Math.floor(Math.random() * 10);
+        let y = Math.floor(Math.random() * 10);
+     
         for (let i=0; i<moveArray.length; i++) {
-            if(parseInt(moveArray[i]) == parseInt([x,y])) {
-                aiAttack();
+            if(moveArray[i][0] == x && moveArray[i][1] == y) {
+             
+                x = Math.floor(Math.random() * 10);
+                y = Math.floor(Math.random() * 10);
+                i = 0;
             }
-            else {
-                moveArray.push([x,y])
-                return [x, y]
-            }
+            
         }
+
+
+        moveArray.push([x,y])
+        return [x, y]
      
     }
 
